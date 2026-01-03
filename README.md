@@ -31,7 +31,7 @@ Meadow is installed as a Houdini Package.
 
 ## Nodes 
 
-|                                                          |                                                                                                                                                |
+| Node                                                     | Description                                                                                                                                    |
 |----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![Scatter](.github/assets/scatter.png)                   | **Scatter:**  Similar to a standard scatter node, but it projects UVs onto the surface which preserves point positions with changing geometry. |
 | ![Cluster](.github/assets/cluster.png)                   | **Cluster:** Natural clustering of point indices using Perlin noise pattern.                                                                   |
