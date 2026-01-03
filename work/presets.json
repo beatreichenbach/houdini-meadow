@@ -1,0 +1,206 @@
+{
+  "streaks_0": [
+    {
+      "noise_type": 2,
+      "op": 0,
+      "scale": [1.4, 1.4, 1.4],
+      "roughness": 0.55,
+      "keys": [0.4, 0.55],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 2,
+      "op": 1,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.5,
+      "keys": [0.3, 0.6],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [0.5, 0.5, 0.5],
+      "roughness": 0.75,
+      "keys": [0.25, 0.75],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "streaks_1": [
+    {
+      "noise_type": 1,
+      "op": 0,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.5,
+      "keys": [0.0, 0.1],
+      "values": [1.0, 0.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [2.0, 2.0, 2.0],
+      "roughness": 0.6,
+      "keys": [0.35, 0.5],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "scales_0": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.5,
+      "keys": [0.3, 0.5],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 1,
+      "op": 3,
+      "scale": [0.45, 0.45, 0.45],
+      "roughness": 0.5,
+      "keys": [0.1, 0.2],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "scales_1": [
+    {
+      "noise_type": 2,
+      "op": 0,
+      "scale": [0.65, 0.65, 0.65],
+      "roughness": 0.5,
+      "keys": [0.0, 0.5],
+      "values": [1.0, 0.0]
+    },
+    {
+      "noise_type": 1,
+      "op": 3,
+      "scale": [0.55, 0.55, 0.55],
+      "roughness": 0.4,
+      "keys": [0.0, 0.2],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "patches_0": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.25,
+      "keys": [0.4, 0.7],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 2,
+      "op": 3,
+      "scale": [0.6, 0.6, 0.6],
+      "roughness": 0.5,
+      "keys": [0.2, 0.6],
+      "values": [1.0, 0.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [0.5, 0.5, 0.5],
+      "roughness": 0.65,
+      "keys": [0.0, 0.55],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "patches_1": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.45,
+      "keys": [0.45, 0.65],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 1,
+      "op": 3,
+      "scale": [1.65, 1.65, 1.65],
+      "roughness": 0.5,
+      "keys": [0.05, 0.2],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "islands_0": [
+    {
+      "noise_type": 1,
+      "op": 0,
+      "scale": [1.65, 1.65, 1.65],
+      "roughness": 0.45,
+      "keys": [0.2, 0.45],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [0.7, 0.7, 0.7],
+      "roughness": 0.55,
+      "keys": [0.0, 0.55],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "islands_1": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [1.65, 1.65, 1.65],
+      "roughness": 0.35,
+      "keys": [0.55, 0.6],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [0.7, 0.7, 0.7],
+      "roughness": 0.55,
+      "keys": [0.2, 0.55],
+      "values": [0.0, 1.0]
+    }
+  ],
+  "spread_0": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [1.65, 1.65, 1.65],
+      "roughness": 0.4,
+      "keys": [0.0, 0.85],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 1,
+      "op": 3,
+      "scale": [1.0, 1.0, 1.0],
+      "roughness": 0.5,
+      "keys": [0.0, 0.1],
+      "values": [0.0, 1.0]
+    },
+    {
+      "noise_type": 0,
+      "op": 3,
+      "scale": [0.35, 0.35, 0.35],
+      "roughness": 0.6,
+      "keys": [0.0, 0.75],
+      "values": [0.4, 1.0]
+    }
+  ],
+  "spread_1": [
+    {
+      "noise_type": 0,
+      "op": 0,
+      "scale": [2.0, 2.0, 2.0],
+      "roughness": 0.55,
+      "keys": [0.0, 0.8],
+      "values": [1.0, 0.0]
+    },
+    {
+      "noise_type": 1,
+      "op": 3,
+      "scale": [0.32, 0.32, 0.32],
+      "roughness": 0.65,
+      "keys": [0.0, 1.0],
+      "values": [1.0, 0.4]
+    }
+  ]
+}

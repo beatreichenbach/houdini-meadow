@@ -1,0 +1,294 @@
+Hello. Let's take a look at Meadow, a scattering toolkit I've put together for Houdini. To be clear, this isn't a total
+replacement for your existing workflows. The goal here was to create a set of nodes that seamlessly integrate into
+Houdini. You can drop them into your current setups to get an extra layer of control without having to change your
+entire graph as they behave just like the existing nodes. In this video, we're going to walk through the different
+nodes in the kit. You can chat to the timestamps for each node as well. And
+check out the description for how to install these nodes yourself. For our demo, we're going to use
+different grounds or surfaces to scatter our object on. And as objects, I
+actually prepared three components here. Let's take a look at those.
+They are just a sphere, a pyramid, and a cube that I placed in the stage
+underneath an assets scope or an assets group. This
+uh works on the stage with a lop point instance here, but it's also going to work in subs since all the points are
+actually going to be manipulated on a sub level anyway. So, to get started,
+let's take a look at our first ground here. Um, like this. Uh we're just going
+to dive into this instance here. So at the top I am going to import the
+uh the input into our current node and then unpack it so that we have some
+geometry to work with. I'm also importing and unpacking only to the
+component level so that we get the names cube, pyramid and sphere. Um, and that
+just allows us to preview our instancing inside the the instancer. You
+can also have multiple uh scene views with uh one locked to the stage and then
+preview it that way. But this uh is often pretty easy to just have a a copy
+to points uh in the same scene that you can use to preview. So, it's going to
+look something like this with uh the the grid. Right now,
+Scatter
+let's start out with the meadow scatter node. Now, this node, if we take a look
+at it, is going to be very similar to a normal scatter node. And I'll go into
+the differences in a second here, but really it is just a node that allows us
+to project uh UVs onto the surface. Uh so it is set to in texture space by
+default and it allows us to display the projection plane. So the first thing I'm
+going to do is I'm going to scale up my uh projection plane and then uh we can
+adjust our density. And we have a uh
+points scattered on the surface in UV space. This allows us to move this
+projection plane around by just going to the edit mode of the node
+like this. Um and why is this helpful? Well, it is helpful because let me um
+preview a normal scatter node really quick. So with the normal scatter node, we would do exactly the same thing, but
+we'll just scatter on the surface directly. So if I then go into our scene
+here, uh we'll take a look at our output. We're now instancing a bunch of
+cubes onto our surface. If I add this log onto our surface here, you can see
+we now have a log on our surface with cubes scattered on it. But as soon as I
+change it, everything changes. And the reason why is just because the randomness gets
+reset. So if we use a our normal scatter node with UV projection,
+we have this. And then if I bring in the law, we automatically get the same kind
+of like scattering because the scattering happen or the points don't jump around because they are projected
+in UV space. And we're also getting a uh top- down projection. So we won't have
+anything on multiple surfaces if you have intersecting grounds for example.
+Now, like I said in the beginning, these two nodes exact act exactly the same. So
+whether you want to use a scatter node, a meta scatter node, or a scatter and align node, it really doesn't matter.
+This just plugs plugs in exactly like any of these other nodes here.
+Now the uh other thing with the scatter node
+is it can you can also rotate this projection plane. So, if you would like
+to project this from a different I actually have to look at it. If I actually would like to project this from
+a different angle, uh this could come in uh handy. For example, when you're
+working with a hill and this hill might be slanted and you you would like to
+project something kind of like against this hill, you would want to probably change that projection plane so you're
+not getting um so you're getting a good coverage of that.
+And the all the other all the other settings here are exactly the same as on
+the scatter node. The only thing to mention is maybe these um point attributes, vertx attributes, these are
+getting copied from the projection. So if you have any attributes on here,
+they're getting automatically copied uh because of this from the surface onto
+the points. So this is useful for any kind of attributes you would like to copy onto the points.
+Cluster
+All right, our next node is going to be the meadow cluster node. So, this is used to add clustering to our points. To
+visualize that a little bit better, I'm going to increase our point count in the scatter. And let's take a look at the
+cluster. The first thing I would do is just click this visualize, which gives us a nice visualization of what's
+happening. If we zoom out a little bit, we'll start seeing a noise pattern. I'm going to scale this noise pattern up so
+we can see something. And you'll see a uh cluster pattern of different uh for
+different objects that you're going to scatter. Now, this isn't like a voronoi pattern, but it's a like more natural
+pearlin pattern. And uh we can add a uh another uh probability in here. And if
+this is hard to see, you can always play around with the colors, whatever uh works best for you.
+And once uh we have all our probabilities, let's say we want uh only
+very few of the third probability, this like cyan color, or maybe we want fewer
+of the blue. Uh it allows us to adjust these probabilities. So we get nice
+little clusters of of these blue um objects. Where this might come in handy
+is if you have a field of flowers and you want like clusters of blue flowers
+and otherwise like yellow and then green flowers and having them kind of like you know in the same area. Uh that's where
+this node is really handy. I'm going to increase this back up so we
+have an even distribution again. And then we can play around with the roughness slider. This is just a
+roughness of the pearland noise pattern. So we get these really interesting
+shapes here. I'm just going to add a little bit of roughness. And then we
+have this blur where we can kind of like blur the borders of the
+of these shapes here a little bit. So maybe we have some plants that kind of
+like um some seeds of the plants that kind of like went a little bit further in this thing. Now this is setting the
+index attribute. So if you hover over it, we can see the index attribute and we can use that then uh to drive our
+copy to points or our instancer. So, if we go back outside to our instancer now,
+we can see we have some spheres, we have some uh cubes, and then we going to have
+some uh I guess these are the pyramids, and then these are the cubes. So, we're
+getting these nice uh clusters.
+Now in the case that we have uh specific assets that we want to put onto the onto
+these index indices, we can either kind of like control a name attribute per
+index or we can also set this attribute type to string and this uh gives us yeah
+a new um a a new field here. So we can enter cube
+sphere pyramid and if we switch this attribute
+to name now in our copy to points for example we can set this piece attribute
+to name and if this this will correspond with our name here and it will also work
+with our point instancer and we're going to get we can kind of like control which one is going to be which if we want to
+control uh the probability of the cube, the probability of the sphere etc. Uh on
+the instancer here we just would have to set this to name attribute uh to name
+and well it would work the same way uh like that.
+Prune
+Okay. So our next node is going to be the meadow prune node. Now what the
+prune node does it prunes based on a attribute. Now we don't have a an
+attribute. So let's just use a normal attribute paint like this.
+And we can just uh use this. It's already set to mask. So now we can just
+kind of like draw here like this. We can draw some areas that we want to paint.
+uh some areas that we want some flowers to spawn
+like this. All right.
+And you can use any kind of um nodes that create these attributes. We're
+going to learn obviously about all the mask attributes from the meadow pack, but it also works with attribute paint
+and with other nodes as well. this um since we have our scatter set to uh
+import attributes from for all point attributes, this mask attribute comes
+through. And if you want to preview this mask attribute, you can uh come in here
+to this marker tab and just uh display it. And if you don't have this, let's say you it will look like this, you can
+come in here and add a color. And we'll set this to vis mask uh mask. And we'll
+go to um ramped attribute. And we want to display
+the mask attribute. And I'm just going to set this to infrared. So we got a blue to red color. So now we will always
+see this mask attribute which kind of helps especially when we have we're visualizing the color attribute here.
+Right? So if I want to just see the mask, I I come to this visualization tab. So now that we have our mask, we
+can put our prune node in and we're automatically pruning everything that is
+um uh black and everything that is white stays. Now we have different methods
+here. So we have random, noise and threshold. A threshold simply cuts out
+everything that is below the threshold. So everything that is below 0.1 but that
+gives us a very straight kind of like edge that might be good for some sometimes or other times you might want
+like a random kind of like uh edge. In some cases you might want to set this to
+noise and this is going to use a positionbased noise. So if we scale this
+up you can kind of actually see this uh noise. The reason why we might sometimes
+want to use a noise and the reason why it's very small is so it acts kind of like random is in case uh these points
+move around. If they just move a tiny bit around the scattering changes and
+then the look changes a lot. So if I come to my scatter here and I move my
+scattering around. Oh, sorry. Um, I'm actually going to not go into
+the edit mode so we can keep uh keep it and just move it around a little bit.
+See here how it barely changes in the noise. But if I set this to random and I
+move it uh over just a little bit, we're getting a completely different result.
+So sometimes it might be nice to kind of like control the randomness with a
+noise. And this is going to be used in other areas um in other nodes as well later. So this is kind of like a nice um
+option for if you if it's important to preserve the the position of the point
+so uh the points don't jump around every time you change something.
+Point Transform
+Okay, now that we have our points, uh let's uh align them to the surface
+because right now they're all kind of like the pyramid is pointing into weird direction and it doesn't really behave
+the way we would want to. Normally, you would use a scatter and align node probably to align your uh points to a
+surface, but we're going to use our meadow point transform node. Now what
+this note does, it has a uh initialized direction node here. And this direction
+is really just kind of like a direction that makes it so all the nodes here point uh into the direction of the
+normal from the surface that the points got spawned onto.
+Now, uh, if we have a forest, we wouldn't want, if this is a hill, we
+wouldn't want the trees to all look away from the surface. So, in this case, we have this direction slider. And we can
+actually slide it up all the way to one. And now they will all follow this up
+vector. So, the direction is really kind of like a blend between the normal and the up vector. If we want, we can go
+negative and they will point down. But usually, we want to stay between uh zero
+and one. Now, we also have this translation, rotation, and scale um sections, and
+these are really just here to randomize some of our data. So, let's say we want
+to rotate each um each object here. um give a completely randomized rotation in
+Y or in up we can just add 360. So we get uh a random value between zero and
+360. We can also if we would want to snap it
+to 45° angles set this to 45 and now all our objects here um would get like
+snapped into 45 degree angles. This is helpful for more architectural kind of
+scattering. Then the scale. Let's adjust the scale so everything kind of like looks a
+little bit okay. Better. Um, that works better. And then we can uh scale some of
+our uh stuff. I would like some of our objects to be uh really big. So, I want
+to kind of like randomize it, but keep the X, Y, and Z locked together so that
+I'm I can only uh so that they all scale evenly. Um, if I want to only grow them
+into Y, I could set this to XZ locked and I could move this guy here and it
+would only randomize this. And if I randomize this, it will uh grow evenly
+into uh both um X and Z direction. But for now, let me switch this to XYZ and
+just scale some objects really big. Now, it would be cool to have only few
+objects that are really big. So, that's where we can use this ramp slider. And I'm going to just expand that. Set this
+to be spline and add another curve in here. And so now we should have, if I
+bring this over, we're going to have like some objects that are really big, but most of them
+are going to be one. And then every like every between 5% or so, I have a chance
+of scaling all the way up to four. So that's what this probability curve here is for. It allows us to kind of create
+some very big objects. um but most of them being like at scale of one. All
+right, this kind of covers some of the the basic things. Um now let's go into some
+of the more advanced uh uh things of this node. Our next node is going to be
+Frustum Cull
+the frostm call. I set up a little uh forest scene here uh where each one of
+these uh pyramids might be a scattered object. And we have a camera and this
+camera has some animation on it. It's all the way over here. So if you look at our camera, we're just flying through
+this area here. Um that's it. We just have a little bit of an animation. So
+what we can do with the frostm call uh if I just place this frostm call I set
+the instancer to I put a star behind both so it captures all of them but
+really I just want one camera and whatever the instances are that I want
+but put this down here um we're getting a frostome column and this works um just
+like that where we call everything that is not visible in some really heavy
+scenes this might make sense uh for render time. Um most of the times though
+the point instances are are good enough like optimized enough that that that
+this is not a problem but in case you want it um there is a frostm call. This
+works on the lot and there is also a uh another node in for the substage where
+you can also do a frostm call for this where you point to a up camera um or
+sorry a sub camera. Uh there is some padding in case you
+want to increase the area around um the if you want to give some extra space.
+You can move the camera back to capture anything behind the camera. And there is
+a distance fall off in case you would like to um limit uh the the the elements
+into the distance. And if you if these are not exactly the same number, um it
+will randomly kind of like uh fade fade them out over that distance.
+Mask Builder
+Okay, so next up, let's take a look at some of the mask nodes that we have. The
+first one is going to be the meadow mask builder. And this node here really is
+just kind of a preset uh a note to to to run some preset noises. uh onto your uh
+surfaces or points. So again, I have my mask visualizer on and let's scale this
+uh node up because we have working with a quite a large scale here. So this is
+just a way to kind of like have some of these no noise presets. We can switch
+between uh different presets here. And I just made some of these um uh presets
+that are just combinations of different noises. So if we expand this, we can clear it and make our own own noise
+here. We can start with a pear and noise. Um play around with, you know,
+what this should look like. And maybe make some little islands like this. And
+then we can add other noises on top of it and set them to multiply. for example,
+we'll use an alligator noise. And I just want some of these really kind of like
+these these um these lines here. And so I want it to be mostly
+mostly um white with some black lines around here. And so now we can kind of
+like multiply, add, subtract, just kind of play around with different noise setups, but mostly I think um I'll just
+be using these uh presets uh that come with the node to to have some variations
+for for noises um to scatter plants or or leaves or whatever.
+Uh the way uh to see what this looks like is we can take a look at this
+example here where I scattered some points on on this surface. Let me hide
+this surface. And then I built uh I built I used a mask builder uh
+pruned some stuff and then what this looks like in the end is we just have um
+some of these patterns here, these spheres. You can see the noise patterns. We're just getting some randomized
+patterns on here. Makes it really easy to just drop this mask builder anywhere into your graph.
+Mask by Curve
+Okay, next up is going to be the meadow mask by curve feature or note. Uh let's
+take a look at this. And what we need for this is obviously a curve. So I have my surface here and I'm going to uh I
+already prepared this these curve shapes here. So, we can just take a look at this uh with these curves here. And I I
+I drew these bezier curves. Um the reason why I have a reample node here is
+because if I plug them in, we're going to get a warning here and that says this node performs a lot faster if the curves
+are polygons. Consider resampling curves. So, the node itself is just works faster if it uh it can work on
+polygons. that makes a difference when you're in the if you have like a hundreds of thousands of points. Uh for
+for small areas like this, it shouldn't matter too much. Now, this node will
+work on uh surfaces like this or you can obviously also do this directly on
+scattered points if you rather want to just kind of like work with uh the final
+resolution uh of your um of your points. to work to for to to use this. I'm just
+going to use the surface because it's a little bit easier to visualize. So, we're going to have a radius that allows
+us to add a little bit of a fall-off. And then we can offset this radius if I
+preview these curves. I can have them the fall-off start on the inside or I
+can have the fall-off oops, sorry. I can have the fall-off start on the outside.
+Um, that's what this one is for. We can also uh say that we want to force the
+curves to be open and add a little bit of thickness to our curves. And then if
+I add I would have to I guess have the falloff be on the outside of this. Um,
+and then I can have kind of like thicker ones or less thick ones. But for this in this case I prefer these kind of uh this
+kind of look where we have maybe some forests on these hills here. Now I'm
+just going to add another mask by curve node here. And in this this time my
+curve looks like this. Maybe it's a road going through this valley here. And I'm
+going to add some thickness to my road. But then I'm going to set it to exclude.
+And I'll add a little bit of a radius again. Just a little bit of a fall-off. Just like that. We can also show our
+curves here if we want to to see what's going on. And that's pretty much all
+there is to it. Uh there's also a ramp if we want to remap this uh curve.
+Mask by Geometry
+Okay. For our next uh node, the mask by geometry node. Let's just start with a
+simple setup here. We're going to have uh a surface that is like a hill and
+we're going to scatter some points on it. And then I'm going to just copy to points some of these trees. Now next
+let's have some uh ferns for example or other plants and
+we want to scatter them around our trees. We can just use a mask by
+geometry node here just like this. And this will mask the areas around the
+objects that we then can use. If I preview this to kind of like scatter
+some objects around these uh trees. Uh this works whether uh these objects are
+uh coming from USD or you can unpack them or um whether they come from a copy
+to point like this. Now you might wonder why not just use a
+mask from geometry node just like this because it should work exactly the same.
+Um, we should get if I just set the radius a little bit bigger, we should really kind of get the same result
+between these two. Well, yes. Um, and that is kind of like why I built all of
+these nodes as drop in replacements. I found that this node is just working a little bit faster or when you have
+hundreds of thousands of points. But if you want, you can just use this mask
+from geometry node. Um, they're exactly doing the same. So we also have a
+distance inside uh if we want to look at the the distance inside uh the surface.
+So that doesn't work or distance from the surface uh like this where we can
+kind of like create little rings. Now in case you would like to have a uh radius
+and not have anything inside, we can use a ramp. Just move this point a tiny bit
+over. And then add another point in here. And I'm gonna set that at zero. And then
+this one I can just put at 0.01. And now we won't have any objects inside
+the tree. So we can kind of use the ramp as well. We can always use this exclude to subtract um these areas from an
+existing map and show the geometry if we need to preview what we're doing.
+Mask by Feature
+Okay, let's take a look at the next node, the mask by feature node.
+We'll simply plug it in. And for this node, it might be good to actually set our mask attribute uh to
+using min and max zero to one. Otherwise, um it will look kind of
+weird. I forgot to set this earlier. So, I'm adjusting it now and letting you guys know. Otherwise, it automatically
+adjusts to the minimum and maximum values. Let's take a look at this. Um, by
+default, the slope is activated and we can kind of compute a range here or we
+can use the ramp. I mean, we can also use them in combination. But this allows us to kind of like mask out sloped
+areas. Now, you're uh you're definitely right. You can use a mask by feature
+node like this and where you can use this direction, shadows, ambient occlusion. All of these nodes here are
+just drop in replacements for the other nodes. So uh play around, feel free to
+use either or node. The I just put the two um attributes that I like using a
+lot. Uh so the other one is the altitude which we can multiply here with the uh
+existing one and we can again compute the range so that we can then kind of
+like dial in our our ramp perfectly to mask out only higher areas. That is
+pretty much everything. As always there is going to be up attributes and altitude attributes. We can again take a
+look on our planet how this comes in handy. Uh if we have our altitude
+calculated as a distance away from the center, this allows us to uh set these
+this altitude attribute um based on the on the center. Meaning
+it works also on custom shapes like uh this and obviously for the slope as
+well. All right, those were all the notes that we have so far in the meadow scattering
+Outro
+uh toolkit. Uh feel free uh to leave a message down
+below or um create an issue on GitHub if you run into any issues. That link is
+below where you can also find the installation instructions for those nodes.

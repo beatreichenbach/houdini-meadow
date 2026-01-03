@@ -1,0 +1,7 @@
+{
+  "env": [
+    {
+      "HOUDINI_OTLSCAN_PATH": "$HOUDINI_PACKAGE_DIR/meadow"
+    }
+  ]
+}

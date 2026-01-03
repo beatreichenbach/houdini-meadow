@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build ZIP file
+        run: |
+          mkdir -p build/meadow
+          cp src/*.hda build/meadow/
+          cp src/*.json build/
+          cd build
+          zip -r ../meadow-${{ github.ref_name }}.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: meadow.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
