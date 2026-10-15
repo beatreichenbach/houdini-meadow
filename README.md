@@ -13,7 +13,7 @@ Meadow is installed as a Houdini Package.
 2. Navigate to your Houdini user preferences folder: `$HOME/houdini‹X›.‹Y›`
 3. If you don't have a folder named `packages` in that directory, create it.
 4. Extract the contents of the `.zip` file into the `packages` folder.
-5. Restart Houdini. You can verify the installation by opening the **Package Browser** (**Windows > Package Browser**) and ensuring "Meadow" is listed.
+5. Restart Houdini. Verify the installation in the [Package Browser](https://www.sidefx.com/docs/houdini/ref/windows/package_browser.html).
 
 **Example Folder Structure:**
 ```text
