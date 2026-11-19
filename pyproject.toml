@@ -1,0 +1,22 @@
+[project]
+name = "houdini-meadow"
+version = "0.1.0"
+description = "A scattering tool kit for SideFX Houdini."
+requires-python = ">=3.11, <3.12"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.0",
+    "types-houdini>=21.0",
+    "types-usd>=24.5",
+    "ruff>=0.16",
+    "ty>=0.0.82",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff.format]
+quote-style = "single"
+docstring-code-format = true
