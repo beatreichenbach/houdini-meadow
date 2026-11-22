@@ -37,6 +37,7 @@ For instructions on how to use each node, see this [YouTube video](https://www.y
 | ![Prune](.github/assets/prune_64.png)                       | **Prune:** Remove points based on attribute.                                                            |
 | ![Point Transform](.github/assets/point_transform_64.png)   | **Point Transform:** Align points to set inital orientation and randomize point transforms.             |
 | ![Frustum Cull](.github/assets/frustum_cull_64.png)         | **Frustum Cull:** Hide points outside the camera frustum to optimize heavy scenes.                      |
+| ![Paint Surface](.github/assets/paint_surface_64.png)       | **Paint Surface:** Paint a surface of variable density with a brush.                                    |
 | ![Prototypes](.github/assets/prototypes_64.png)             | **Prototypes:** Set index attributes for prototypes.                                                    |
 | ![Mask Builder](.github/assets/mask_builder_64.png)         | **Mask Builder:** Preset-based node for layering noises like Perlin, Alligator and Worley.              |
 | ![Mask by Curve](.github/assets/mask_by_curve_64.png)       | **Mask by Curve:** Create masks based on curve proximity with falloff control.                          |
